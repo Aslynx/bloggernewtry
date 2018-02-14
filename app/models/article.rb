@@ -18,6 +18,7 @@ class Article < ActiveRecord::Base
    	self.tags = new_or_found_tags
    end
 
+   # Count the number of views
    def self.incrementation(article)
       Article.increment_counter(:view_count, article.id)
    end 

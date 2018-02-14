@@ -6,7 +6,13 @@
 	def index
 		@articles = Article.all
 
+		# List the three most popular articles
 		@popular_articles = Article.order(:view_count).last(3)
+
+		respond_to do |format|
+			format.html
+			format.rss {render :layout => false }
+		end 
 	end
 
 	def show
