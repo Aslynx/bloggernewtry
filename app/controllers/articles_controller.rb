@@ -5,6 +5,8 @@
 
 	def index
 		@articles = Article.all
+
+		@popular_articles = Article.order(:view_count).last(3)
 	end
 
 	def show
